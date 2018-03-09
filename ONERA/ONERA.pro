@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT += opengl
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     box.cpp \
     vector3.cpp \
-    renderwindow.cpp
+    renderwindow.cpp \
+    glwidget.cpp
 
 HEADERS  += mainwindow.h \
     box.h \
     vector3.h \
-    renderwindow.h
+    renderwindow.h \
+    glwidget.h
 
 FORMS    += mainwindow.ui \
     renderwindow.ui
+
+LIBS += -L/usr/local/lib -lGLU -lglut
