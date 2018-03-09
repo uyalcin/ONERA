@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,10 +16,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     box.cpp \
-    vector3.cpp
+    vector3.cpp \
+    renderwindow.cpp
 
 HEADERS  += mainwindow.h \
     box.h \
-    vector3.h
+    vector3.h \
+    renderwindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    renderwindow.ui

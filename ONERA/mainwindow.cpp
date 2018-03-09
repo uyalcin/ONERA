@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "renderwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,5 +15,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::test() {
-    qDebug("test");
+
+    RenderWindow *wdg = new RenderWindow;
+    wdg->show();
 }
