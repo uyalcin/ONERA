@@ -148,6 +148,12 @@ def liaisonCpp ():
 	l = generationObjets1(conteneur, 20, 0.6)
 	#Appel solveur sans contraintes
 	solveurSansContraintes(conteneur, l)
+
+def liaisonDatas (l, w, h, percentFillingBox, nbObjects):
+	conteneur = Conteneur(l, w, h)
+	l = generationObjets1(conteneur, nbObjects, percentFillingBox)
+	#Appel solveur sans contraintes
+	solveurSansContraintes(conteneur, l)
 	
 		
 if __name__ == "__main__":
