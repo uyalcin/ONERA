@@ -60,6 +60,8 @@ def solveur3D (conteneur = [], datas = []):
 	#print(lastImage)
 
 	afficherImage (lastImage)
+
+	return d2
 	
 def solveurLevel3D (conteneur = [], datas = []):
 	conn = httplib.HTTPConnection(host='eu.api.3dbinpacking.com', port=80)

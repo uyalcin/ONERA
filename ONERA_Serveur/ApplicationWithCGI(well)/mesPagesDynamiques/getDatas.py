@@ -34,7 +34,7 @@ h = int(height)
 p = float(percentFillingBox)
 n = int(nbObjects)
 
-liaisonDatas(l, w, h, p, n)
+d2 = liaisonDatas(l, w, h, p, n)
 
 print ("Content-type:text/html\r\n\r\n")
 print ('<html>')
@@ -44,7 +44,10 @@ print ('</head>')
 print ('<body>')
 print ("<h2>Box : (%s,%s,%s)</h2>" % (l, w, h))
 print ("<h2>Percent -> %s  ~  Number -> %s</h2>" % (p, n))
+print ("<h2>%s</h2>" % (l))
 print ("<h2>chemin : %s</h2>" % (abspath))
+for k in d2:
+	print ("<h2>Box %s : (%s,%s,%s) -> (%s,%s,%s)</h2>" % (k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"]))
 print ("</body>")
 print ("</html>")
 

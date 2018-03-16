@@ -70,7 +70,10 @@ def  solveurSansContraintes (conteneur, l):
 	#print newCont
 	
 	#solveur3D()
-	solveur3D(listeConteneur, listeItems)
+	positionObjets =  solveur3D(listeConteneur, listeItems)
+
+	return positionObjets
+
 	
 def sameLevel (l):
 	"""
@@ -153,7 +156,9 @@ def liaisonDatas (l, w, h, percentFillingBox, nbObjects):
 	conteneur = Conteneur(l, w, h)
 	l = generationObjets1(conteneur, nbObjects, percentFillingBox)
 	#Appel solveur sans contraintes
-	solveurSansContraintes(conteneur, l)
+	positionObjets = solveurSansContraintes(conteneur, l)
+	#print len(positionObjets)
+	return positionObjets
 	
 		
 if __name__ == "__main__":
