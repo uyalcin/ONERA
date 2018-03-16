@@ -14,7 +14,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::test() {
+void MainWindow::test()
+{
 
     RenderWindow *wdg = new RenderWindow;
     wdg->show();

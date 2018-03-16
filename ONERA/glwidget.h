@@ -14,6 +14,9 @@ public:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
+
+    // Draw a Cube
+    void drawCube(float x, float y, float z, float w, float h, float l);
 };
 
 #endif // GLWIDGET_H
