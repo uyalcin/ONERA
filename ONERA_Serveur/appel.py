@@ -159,6 +159,40 @@ def liaisonDatas (l, w, h, percentFillingBox, nbObjects):
 	positionObjets = solveurSansContraintes(conteneur, l)
 	#print len(positionObjets)
 	return positionObjets
+
+#Dernieres fonctions pour plus de facilite pour les appels specifiques
+def generateurObjets (l, w, h, percentFillingBox, nbObjects):
+	conteneur = Conteneur(l, w, h)
+	l = generationObjets1(conteneur, nbObjects, percentFillingBox)
+	return conteneur, l
+
+#appel du solveur sans contraintes uniquement
+def callSolveur (conteneur, l):
+	positionObjets = solveurSansContraintes(conteneur, l)
+	return positionObjets
+
+# Changement d'une liste d'objets a une double liste avec toutes les informations concernant chaque objet
+def changeList (l) :
+	nbObjets = len(l)
+	l_map = []
+	for i in range(nbObjets):
+		l_map.append([0] * 5)
+
+	cpt = 0	
+	#print l_map[0][0]
+	for o in l:
+		l_map[cpt][0] = o.num
+		l_map[cpt][1] = o.longueur
+		l_map[cpt][2] = o.largeur
+		l_map[cpt][3] = o.hauteur
+		l_map[cpt][4] = o.poids
+		cpt += 1
+
+	#for o in l_map:
+	#	print o
+
+	return l_map
+	
 	
 		
 if __name__ == "__main__":

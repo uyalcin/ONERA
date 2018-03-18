@@ -34,7 +34,14 @@ h = int(height)
 p = float(percentFillingBox)
 n = int(nbObjects)
 
-d2 = liaisonDatas(l, w, h, p, n)
+#fonction qui fait directement tout et qui renvoie le dico contenant infos sur placement boites
+#d2 = liaisonDatas(l, w, h, p, n)
+
+conteneur, boxList = generateurObjets(l, w, h, p, n)
+#tableau double dimension contenant toutes les informations des boxs
+objectsList = changeList(boxList)
+#dictionnaire contenant toutes les coordonnées des boites dans le conteneur
+d2 = callSolveur(conteneur, boxList)
 
 print ("Content-type:text/html\r\n\r\n")
 print ('<html>')
@@ -46,8 +53,10 @@ print ("<h2>Box : (%s,%s,%s)</h2>" % (l, w, h))
 print ("<h2>Percent -> %s  ~  Number -> %s</h2>" % (p, n))
 print ("<h2>%s</h2>" % (l))
 print ("<h2>chemin : %s</h2>" % (abspath))
-for k in d2:
-	print ("<h2>Box %s : (%s,%s,%s) -> (%s,%s,%s)</h2>" % (k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"]))
+#for k in d2:
+#	print ("<h2>Box %s : (%s,%s,%s) -> (%s,%s,%s)</h2>" % (k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"]))
+#for line in objectsList:
+#	print ("<h2>[%s,%s,%s,%s,%s]" % (line[0], line[1], line[2], line[3], line[4]))
 print ("</body>")
 print ("</html>")
 
