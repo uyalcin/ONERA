@@ -15,7 +15,7 @@ def solveur3D (conteneur = [], datas = []):
 	conn = httplib.HTTPConnection(host='eu.api.3dbinpacking.com', port=80)
 	
 	if datas == [] and conteneur == []:
-		data = {"bins": [{"w": 10, "h": 10, "d": 10, "max_wg": 1000, "id": "Bin1"}], "items": [{"w": 3, "h": 3, "d": 3, "q": 9, "vr": 1, "wg": 5, "id": "Item2"},{"w": 2, "h": 8, "d": 8, "q": 1, "vr": 1, "wg": 200, "id": "Item3"}], "username": "parisantoi", "api_key": "f99177be0ff90ae0263f9154f79ffab3", "params": {"images_background_color": "255,255,255", "images_bin_border_color": "59,59,59", "images_bin_fill_color": "230,230,230", "images_item_border_color": "214,79,79", "images_item_fill_color": "177,14,14", "images_item_back_border_color": "215,103,103", "images_sbs_last_item_fill_color": "99,93,93", "images_sbs_last_item_border_color": "145,133,133", "images_width": 100, "images_height": 100, "images_source": "file", "images_sbs": 1, "stats": 1, "item_coordinates": 1, "images_complete": 1, "images_separated": 1}}
+		data = {"bins": [{"w": 10, "h": 10, "d": 10, "max_wg": 1000, "id": "Bin1"}], "items": [{"w": 3, "h": 3, "d": 3, "q": 9, "vr": 1, "wg": 5, "id": "Item2"},{"w": 2, "h": 8, "d": 8, "q": 1, "vr": 1, "wg": 200, "id": "Item3"}], "username": "parisantoi1", "api_key": "ed4202d3a3c95b42bf31b3305f7c89e6", "params": {"images_background_color": "255,255,255", "images_bin_border_color": "59,59,59", "images_bin_fill_color": "230,230,230", "images_item_border_color": "214,79,79", "images_item_fill_color": "177,14,14", "images_item_back_border_color": "215,103,103", "images_sbs_last_item_fill_color": "99,93,93", "images_sbs_last_item_border_color": "145,133,133", "images_width": 100, "images_height": 100, "images_source": "file", "images_sbs": 1, "stats": 1, "item_coordinates": 1, "images_complete": 1, "images_separated": 1}}
 	elif datas != [] and conteneur != [] :
 		data = {"bins": conteneur, "items": datas, "username": "parisantoi", "api_key": "f99177be0ff90ae0263f9154f79ffab3", "params": {"images_background_color": "255,255,255", "images_bin_border_color": "59,59,59", "images_bin_fill_color": "230,230,230", "images_item_border_color": "214,79,79", "images_item_fill_color": "177,14,14", "images_item_back_border_color": "215,103,103", "images_sbs_last_item_fill_color": "99,93,93", "images_sbs_last_item_border_color": "145,133,133", "images_width": 100, "images_height": 100, "images_source": "file", "images_sbs": 1, "stats": 1, "item_coordinates": 1, "images_complete": 1, "images_separated": 1}}
 	else :
@@ -67,7 +67,7 @@ def solveurLevel3D (conteneur = [], datas = []):
 	conn = httplib.HTTPConnection(host='eu.api.3dbinpacking.com', port=80)
 	
 	if datas != [] and conteneur != [] :
-		data = {"bins": conteneur, "items": datas, "username": "parisantoi", "api_key": "f99177be0ff90ae0263f9154f79ffab3", "params": {"images_background_color": "255,255,255", "images_bin_border_color": "59,59,59", "images_bin_fill_color": "230,230,230", "images_item_border_color": "214,79,79", "images_item_fill_color": "177,14,14", "images_item_back_border_color": "215,103,103", "images_sbs_last_item_fill_color": "99,93,93", "images_sbs_last_item_border_color": "145,133,133", "images_width": 100, "images_height": 100, "images_source": "file", "images_sbs": 1, "stats": 1, "item_coordinates": 1, "images_complete": 1, "images_separated": 1}}
+		data = {"bins": conteneur, "items": datas, "username": "parisantoi1", "api_key": "ed4202d3a3c95b42bf31b3305f7c89e6", "params": {"images_background_color": "255,255,255", "images_bin_border_color": "59,59,59", "images_bin_fill_color": "230,230,230", "images_item_border_color": "214,79,79", "images_item_fill_color": "177,14,14", "images_item_back_border_color": "215,103,103", "images_sbs_last_item_fill_color": "99,93,93", "images_sbs_last_item_border_color": "145,133,133", "images_width": 100, "images_height": 100, "images_source": "file", "images_sbs": 1, "stats": 1, "item_coordinates": 1, "images_complete": 1, "images_separated": 1}}
 	else :
 		print "probleme dans transmission de donnees !!"
 		return
@@ -100,4 +100,7 @@ def test():
 	conn.close()
 
 	print content
-	
+
+#API KEYS	
+#parisantoi - f99177be0ff90ae0263f9154f79ffab3
+#parisantoi1 - ed4202d3a3c95b42bf31b3305f7c89e6

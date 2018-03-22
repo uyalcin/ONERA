@@ -34,6 +34,9 @@ h = int(height)
 p = float(percentFillingBox)
 n = int(nbObjects)
 
+if p > 0.8 :
+	p = 0.8
+
 #fonction qui fait directement tout et qui renvoie le dico contenant infos sur placement boites
 #d2 = liaisonDatas(l, w, h, p, n)
 
