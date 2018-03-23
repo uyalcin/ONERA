@@ -22,3 +22,7 @@ HEADERS  += mainwindow.h \
     vector3.h
 
 FORMS    += mainwindow.ui
+
+QT += network
+
+CONFIG += c++11
