@@ -6,6 +6,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    length = 50;
+    width = 50;
+    height = 50;
+    percentFillingBox = 0.6;
+    numberObjectsWanted = 20;
+    serverAdress = "localhost:8000";
+
+    busy = false;
+    error = false;
 }
 
 MainWindow::~MainWindow()
@@ -107,11 +117,6 @@ void MainWindow::pingOk()
 }
 
 void MainWindow::progress(qint64 bytesReceived, qint64 bytesTotal)
-
 {
-    if (bytesTotal != -1)
-    {
-        /*progression->setRange(0, bytesTotal);
-        progression->setValue(bytesReceived);*/
-    }
+    qDebug() << bytesReceived << "/" << bytesTotal;
 }

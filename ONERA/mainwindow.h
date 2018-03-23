@@ -38,15 +38,15 @@ public slots:
 private:
     Ui::MainWindow *ui;
 
-    int length = 50;
-    int width = 50;
-    int height = 50;
-    double percentFillingBox = 0.6;
-    int numberObjectsWanted = 20;
-    QString serverAdress = "localhost:8000";
+    int length;
+    int width;
+    int height;
+    double percentFillingBox;
+    int numberObjectsWanted;
+    QString serverAdress;
 
-    bool busy = false;
-    bool error = false;
+    bool busy;
+    bool error;
 };
 
 #endif // MAINWINDOW_H

@@ -163,11 +163,15 @@
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="processButton">
-      <property name="text">
-       <string>Process</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="processButton">
+        <property name="text">
+         <string>Process</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
