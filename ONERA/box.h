@@ -2,11 +2,14 @@
 #define BOX_H
 
 #include "vector3.h"
+#include <QString>
+#include <QStringList>
 
 class Box
 {
 public:
     Box(Vector3 _dimension);
+    Box(QString _box_string);
     Vector3 getPosition();
     Vector3 getDimension();
     void setPosition(Vector3 _position);

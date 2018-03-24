@@ -59,20 +59,32 @@ void MainWindow::updateServerAdress(QString val)
 }
 
 void MainWindow::process()
-{
-    QString request = "";
-    request.append(serverAdress);
-    request.append("/process?length=");
-    request.append(QString::number(length));
-    request.append("&width=");
-    request.append(QString::number(width));
-    request.append("&height=");
-    request.append(QString::number(height));
-    request.append("&percentFillingBox=");
-    request.append(QString::number(percentFillingBox));
-    request.append("&numberObjectsWanted=");
-    request.append(QString::number(numberObjectsWanted));
-    qDebug() << request;
+{ 
+    busy = true;
+    error = false;
+
+    QString url_str = "http://";
+    url_str.append(serverAdress);
+    url_str.append("/process?length=");
+    url_str.append(QString::number(length));
+    url_str.append("&width=");
+    url_str.append(QString::number(width));
+    url_str.append("&height=");
+    url_str.append(QString::number(height));
+    url_str.append("&percentFillingBox=");
+    url_str.append(QString::number(percentFillingBox));
+    url_str.append("&numberObjectsWanted=");
+    url_str.append(QString::number(numberObjectsWanted));
+
+    const QUrl url = QUrl(url_str);
+    const QNetworkRequest request(url);
+
+    QNetworkAccessManager *m = new QNetworkAccessManager;
+    QNetworkReply *r = m->get(request);
+
+    connect(r, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(serverError(QNetworkReply::NetworkError)));
+    connect(r, SIGNAL(finished()), this, SLOT(processOk()));
+    connect(r, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(progress(qint64, qint64) ));
 }
 
 void MainWindow::testServer()
@@ -119,4 +131,24 @@ void MainWindow::pingOk()
 void MainWindow::progress(qint64 bytesReceived, qint64 bytesTotal)
 {
     qDebug() << bytesReceived << "/" << bytesTotal;
+}
+
+
+void MainWindow::processOk()
+{
+    busy = false;
+    if(!error)
+    {
+        QNetworkReply *r = qobject_cast<QNetworkReply*>(sender());
+        QString response_string = r->readAll();
+        QStringList response_list = response_string.split("\n");
+        std::vector<Box> boxes;
+
+        foreach (const QString &box_string, response_list) {
+            if(box_string.split(",").length() == 6)
+                boxes.push_back(box_string);
+        }
+
+        // Fenêtre rendu
+    }
 }

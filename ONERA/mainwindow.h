@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QtNetwork>
+#include <vector>
+#include "box.h"
 
 namespace Ui {
 class MainWindow;
@@ -34,6 +36,7 @@ public slots:
     void progress(qint64 bytesReceived, qint64 bytesTotal);
     void serverError(QNetworkReply::NetworkError);
     void pingOk();
+    void processOk();
 
 private:
     Ui::MainWindow *ui;
