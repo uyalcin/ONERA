@@ -29,3 +29,7 @@ FORMS    += mainwindow.ui \
     renderwindow.ui
 
 LIBS += -L/usr/local/lib -lGLU -lglut
+
+QT += network
+
+CONFIG += c++11

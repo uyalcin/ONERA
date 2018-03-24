@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include <QMessageBox>
+#include <QtNetwork>
+#include <vector>
+#include "box.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,15 +33,23 @@ public slots:
     void process();
     void testServer();
 
+    void progress(qint64 bytesReceived, qint64 bytesTotal);
+    void serverError(QNetworkReply::NetworkError);
+    void pingOk();
+    void processOk();
+
 private:
     Ui::MainWindow *ui;
 
-    int length = 50;
-    int width = 50;
-    int height = 50;
-    double percentFillingBox = 0.6;
-    int numberObjectsWanted = 20;
-    QString serverAdress = "localhost:8000";
+    int length;
+    int width;
+    int height;
+    double percentFillingBox;
+    int numberObjectsWanted;
+    QString serverAdress;
+
+    bool busy;
+    bool error;
 };
 
 #endif // MAINWINDOW_H
