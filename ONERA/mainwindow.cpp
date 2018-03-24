@@ -16,13 +16,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::test()
 {
-<<<<<<< HEAD
 
     RenderWindow *wdg = new RenderWindow;
     wdg->show();
-=======
     qDebug("test");
->>>>>>> model
 }
 
 void MainWindow::updateLength(int val)
@@ -70,6 +67,9 @@ void MainWindow::process()
     request.append("&numberObjectsWanted=");
     request.append(QString::number(numberObjectsWanted));
     qDebug() << request;
+
+    RenderWindow *r = new RenderWindow();
+    r->show();
 }
 
 void MainWindow::testServer()

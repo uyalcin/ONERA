@@ -11,12 +11,10 @@ public:
     Vector3 getDimension();
     void setPosition(Vector3 _position);
 private:
-<<<<<<< HEAD
 
-=======
     Vector3 dimension;
     Vector3 position;
->>>>>>> model
+
 };
 
 #endif // BOX_H

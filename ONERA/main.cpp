@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "renderwindow.h"
 #include <QApplication>
 #include <GL/glut.h>
 #include <QtGui/QApplication>

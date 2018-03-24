@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>629</width>
-    <height>633</height>
+    <width>1920</width>
+    <height>1024</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,12 +16,64 @@
   <widget class="GLWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>600</width>
-     <height>600</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1024</height>
     </rect>
    </property>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>910</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Next State</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>910</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>End State</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>910</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start State</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>910</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Previous State</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -30,8 +82,79 @@
    <extends>QWidget</extends>
    <header>glwidget.h</header>
    <container>1</container>
+   <slots>
+    <slot>nextState()</slot>
+    <slot>startState()</slot>
+    <slot>previousState()</slot>
+    <slot>finalState()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>nextState()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>947</x>
+     <y>968</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>925</x>
+     <y>813</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>finalState()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1096</x>
+     <y>910</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1133</x>
+     <y>804</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>previousState()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>944</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>827</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>startState()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>550</x>
+     <y>961</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>849</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
