@@ -7,21 +7,34 @@ float rand_a_b(int a, int b)
 
 GLWidget::GLWidget(QWidget *parent):
     QGLWidget(parent),
-    state(0)
+    state(1),
+    zoom(1.0f)
 {
-    Vector3 pos(0, 0, 0);
-    Box b(Vector3(2, 2, 2));
-    b.setPosition(pos);
-    boxs.push_back(b);
 
-    // Random colors
-    for(int i = 0; i < nbBoxs(); i++)
+}
+
+void GLWidget::init(std::vector<Box> _boxs)
+{
+    boxs = _boxs;
+    qDebug() << "Size = " << boxs.size();
+    state = boxs.size();
+
+    // Display Boxs
+    for(int i = 0; i < boxs.size(); i++)
+    {
+        std::stringstream ss;
+        ss << boxs[i];
+        qDebug() << QString::fromStdString(ss.str());
+    }
+
+    // Generate random colors
+    for(int i = 0; i < boxs.size(); i++)
     {
         color c;
         c.r = rand_a_b(0, 100);
         c.g = rand_a_b(0, 100);
         c.b = rand_a_b(0, 100);
-        c.a = 0.5;
+        c.a = 0.5f;
         colors.push_back(c);
     }
 }
@@ -44,24 +57,23 @@ void GLWidget::paintGL()
     //
     // Rotation
     //
+    // rotation about X axis
     glRotatef(45,1.0,0.0,0.0);
     // rotation about Y axis
-    glRotatef(45,0.0,1.0,0.0);
+    glRotatef(-45,0.0,1.0,0.0);
     // rotation about Z axis
     glRotatef(0,0.0,0.0,1.0);
 
     //
     // Draw all the cubes
     //
-    const float s = 0.1f;
-    const float translationY = 0.6f;
 
     for(int i = 0; i < state; i++)
     {
         Vector3 pos = boxs[i].getPosition();
         Vector3 dim = boxs[i].getDimension();
 
-        drawCube(-s * pos.getX(), s * pos.getY() - translationY, s * pos.getZ(), dim.getX(), dim.getY(), dim.getZ(), colors[i]);
+        drawCube(pos.getX()*zoom, pos.getY()*zoom - 0.6f, pos.getZ()*zoom, dim.getX()*zoom, dim.getY()*zoom, dim.getZ()*zoom, colors[i]);
     }
 
     glFlush();
@@ -71,27 +83,27 @@ void GLWidget::nextState()
 {
     state ++;
     if(state >= nbBoxs())
-        state = nbBoxs() - 1;
+        state = nbBoxs();
     update();
 }
 
 void GLWidget::previousState()
 {
     state --;
-    if(state <= 0)
-        state = 0;
+    if(state <= 1)
+        state = 1;
     update();
 }
 
 void GLWidget::finalState()
 {
-    state = nbBoxs() - 1;
+    state = nbBoxs();
     update();
 }
 
 void GLWidget::startState()
 {
-    state = 0;
+    state = 1;
     update();
 }
 
@@ -100,10 +112,28 @@ void GLWidget::resizeGL(int w, int h)
     glViewport(0, 0, (GLint)w, (GLint)w);
 }
 
+void GLWidget::keyPressEvent(QKeyEvent *event)
+{
+    float coeff;
+    if(zoom >= 0.1f)
+        coeff = 0.1f;
+    else
+        coeff = 0.01f;
+    if(event->key() == Qt::Key_I)
+    {
+        zoom -= coeff;
+    }
+    if(event->key() == Qt::Key_U)
+    {
+        zoom += coeff;
+    }
+    qDebug() << "Zoom = " << zoom;
+    update();
+}
+
 void GLWidget::drawCube(float x, float y, float z, float w, float h, float l, color c)
 {
     glBegin(GL_QUADS);
-
     glColor4f(c.r, c.g, c.b, c.a);
 
     glVertex3f(x, y, z);

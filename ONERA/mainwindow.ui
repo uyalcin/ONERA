@@ -146,6 +146,9 @@
        <layout class="QHBoxLayout" name="serverAdressContainer">
         <item>
          <widget class="QLineEdit" name="serverAdressEdit">
+          <property name="text">
+           <string/>
+          </property>
           <property name="placeholderText">
            <string>adress:port</string>
           </property>
@@ -181,7 +184,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>26</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>

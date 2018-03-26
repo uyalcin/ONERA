@@ -34,3 +34,11 @@ float Vector3::getZ()
     return z;
 }
 
+std::ostream& operator<<(std::ostream& out, const Vector3 &v)
+{
+    out << "(" << v.x
+       << ", " << v.y
+       << ", " << v.z
+       << ")";
+    return out;
+}

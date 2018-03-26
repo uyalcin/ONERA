@@ -17,7 +17,7 @@ private:
 
     Vector3 dimension;
     Vector3 position;
-
+    friend std::ostream& operator<<(std::ostream& out, const Box &b);
 };
 
 #endif // BOX_H

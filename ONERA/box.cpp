@@ -31,3 +31,10 @@ void Box::setPosition(Vector3 _position)
 {
     position = _position;
 }
+
+std::ostream& operator<<(std::ostream& out, const Box &b)
+{
+    out << "Position : " << b.position << ", Dimension : " << b.dimension;
+    return out;
+}
+

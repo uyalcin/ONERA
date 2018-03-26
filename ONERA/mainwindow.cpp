@@ -154,5 +154,9 @@ void MainWindow::processOk()
         }
 
         // Fenêtre rendu
+
+        RenderWindow *render = new RenderWindow();
+        render->setDataSet(boxes);
+        render->show();
     }
 }

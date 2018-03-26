@@ -1,3 +1,5 @@
+#include <iostream>
+
 #ifndef VECTOR3_H
 #define VECTOR3_H
 
@@ -12,6 +14,8 @@ class Vector3
         float getX();
         float getY();
         float getZ();
+
+        friend std::ostream& operator<<(std::ostream& out, const Vector3 &v);
 
     private:
         float x;

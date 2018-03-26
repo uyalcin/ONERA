@@ -13,3 +13,8 @@ RenderWindow::~RenderWindow()
 {
     delete ui;
 }
+
+void RenderWindow::setDataSet(std::vector<Box> _boxs)
+{
+    ui->widget->init(_boxs);
+}
