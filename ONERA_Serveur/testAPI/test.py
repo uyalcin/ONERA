@@ -50,16 +50,16 @@ def solveur3D (conteneur = [], datas = []):
 	#print nbItem
 	#print len(datas)
 
-	print "Nombre d'objets places : {} / {}".format(nbItem, len(datas))
+	#print "Nombre d'objets places : {} / {}".format(nbItem, len(datas))
 	
-	for k in d2:
-		print "{} -> ({}, {}, {}) - ({}, {}, {})".format(k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"])
+	#for k in d2:
+	#	print "{} -> ({}, {}, {}) - ({}, {}, {})".format(k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"])
 		
 	
 	lastImage = d2[(nbItem-1)]["image_sbs"]
 	#print(lastImage)
 
-	afficherImage (lastImage)
+	#afficherImage (lastImage)
 
 	return d2
 	

@@ -21,8 +21,8 @@ import http.server
 
 PORT = 8000
 class Handler(http.server.CGIHTTPRequestHandler):
-    cgi_directories = ["/mesPagesDynamiques"]
+    cgi_directories = ["/server"]
 
 print ("Serveur actif sur le port :", PORT)
-server = http.server.HTTPServer(("localhost", PORT),Handler)
+server = http.server.HTTPServer(("192.168.43.93", PORT),Handler)
 server.serve_forever()

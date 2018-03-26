@@ -22,11 +22,11 @@ if os.name == 'posix':
 # Crée une instance pour récupérer les réponses d'un formulaire
 form = cgi.FieldStorage() 
 # Récupère les données depuis les champs du formulaire
-length = form.getvalue('l')
-width = form.getvalue('w')
-height = form.getvalue('h')
-percentFillingBox = form.getvalue('percent')
-nbObjects = form.getvalue('nb')
+length = form.getvalue('length')
+width = form.getvalue('width')
+height = form.getvalue('height')
+percentFillingBox = form.getvalue('percentFillingBox')
+nbObjects = form.getvalue('numberObjectsWanted')
 
 l = int(length)
 w = int(width)
@@ -46,21 +46,11 @@ objectsList = changeList(boxList)
 #dictionnaire contenant toutes les coordonnées des boites dans le conteneur
 d2 = callSolveur(conteneur, boxList)
 
-print ("Content-type:text/html\r\n\r\n")
-print ('<html>')
-print ('<head>')
-print ('<title>Hello Dude</title>')
-print ('</head>')
-print ('<body>')
-print ("<h2>Box : (%s,%s,%s)</h2>" % (l, w, h))
-print ("<h2>Percent -> %s  ~  Number -> %s</h2>" % (p, n))
-print ("<h2>%s</h2>" % (l))
-print ("<h2>chemin : %s</h2>" % (abspath))
-#for k in d2:
-#	print ("<h2>Box %s : (%s,%s,%s) -> (%s,%s,%s)</h2>" % (k["id"], k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"]))
+print ("Content-type:text/html\r\n")
+for k in d2:
+	print ("%s,%s,%s,%s,%s,%s" % (k["coordinates"]["x1"], k["coordinates"]["y1"], k["coordinates"]["z1"], k["coordinates"]["x2"], k["coordinates"]["y2"], k["coordinates"]["z2"]))
 #for line in objectsList:
 #	print ("<h2>[%s,%s,%s,%s,%s]" % (line[0], line[1], line[2], line[3], line[4]))
-print ("</body>")
-print ("</html>")
 
 
+#192.168.43.93:8000/server/process.py?length=20&width=20&height=20&percentFillingBox=0.6&numberObjectsWanted=20

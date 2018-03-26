@@ -196,9 +196,9 @@ def generationObjets1 (conteneur, nbreObjVoulus, pourcentage):
 		repartitionTab = repartition(nbreObjVoulus, volume, pourcentage)
 		volumeMoyen = volume * pourcentage / nbreObjVoulus
 		
-		print("Volume moyen : {} cm3, {} m3".format(volumeMoyen, volumeMoyen / 1000000))
+		#print("Volume moyen : {} cm3, {} m3".format(volumeMoyen, volumeMoyen / 1000000))
 		#print(repartitionTab)
-		print("Volume Total : {} cm3, {} m3".format(volume, volume / 1000000))
+		#print("Volume Total : {} cm3, {} m3".format(volume, volume / 1000000))
 		
 		listeObjet = []
 		while (listeObjet == [] or verificationCapacite(conteneur, listeObjet) == False) :
@@ -207,9 +207,9 @@ def generationObjets1 (conteneur, nbreObjVoulus, pourcentage):
 		
 		listeObjet = definirPoids (listeObjet, volume)
 		
-		print("\nListe des objets : ")
-		for o in listeObjet:
-			print(o)
+		#print("\nListe des objets : ")
+		#for o in listeObjet:
+		#	print(o)
 		
 	return listeObjet
 	
@@ -227,7 +227,7 @@ def verificationCapacite (conteneur, liste):
 		volumeObj += o.volumeTot()
 		#print(o.volumeTot())
 		
-	print("\nLes objets occupent {}% de l'espace total".format(volumeObj*100 / conteneur.volumeTot()))
+	#print("\nLes objets occupent {}% de l'espace total".format(volumeObj*100 / conteneur.volumeTot()))
 	return volumeObj < volumeTot
 	#print ("Volumen totale : {}".format(volumeTot))
 	
