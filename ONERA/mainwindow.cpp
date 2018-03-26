@@ -65,7 +65,7 @@ void MainWindow::process()
 
     QString url_str = "http://";
     url_str.append(serverAdress);
-    url_str.append("/process?length=");
+    url_str.append("/process.py?length=");
     url_str.append(QString::number(length));
     url_str.append("&width=");
     url_str.append(QString::number(width));
@@ -85,16 +85,22 @@ void MainWindow::process()
     connect(r, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(serverError(QNetworkReply::NetworkError)));
     connect(r, SIGNAL(finished()), this, SLOT(processOk()));
     connect(r, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(progress(qint64, qint64) ));
+
+    ui->processButton->setEnabled(false);
+    ui->serverAdressButton->setEnabled(false);
 }
 
 void MainWindow::testServer()
 {
+    ui->processButton->setEnabled(true);
+    ui->serverAdressButton->setEnabled(true);
+
     busy = true;
     error = false;
 
     QString url_str = "http://";
     url_str.append(serverAdress);
-    url_str.append("/ping");
+    url_str.append("/ping.py");
 
 
     const QUrl url = QUrl(url_str);
@@ -106,10 +112,16 @@ void MainWindow::testServer()
     connect(r, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(serverError(QNetworkReply::NetworkError)));
     connect(r, SIGNAL(finished()), this, SLOT(pingOk()));
     connect(r, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(progress(qint64, qint64) ));
+
+    ui->processButton->setEnabled(false);
+    ui->serverAdressButton->setEnabled(false);
 }
 
 void MainWindow::serverError(QNetworkReply::NetworkError)
 {
+    ui->processButton->setEnabled(true);
+    ui->serverAdressButton->setEnabled(true);
+
     error = true;
     QNetworkReply *r = qobject_cast<QNetworkReply*>(sender());
     QMessageBox::critical(this, "Error", "Server connection error. Please check the URL and your internet connection. <br /><br /> Code: <br /><em>" + r->errorString() + "</em>");
@@ -136,6 +148,9 @@ void MainWindow::progress(qint64 bytesReceived, qint64 bytesTotal)
 
 void MainWindow::processOk()
 {
+    ui->processButton->setEnabled(true);
+    ui->serverAdressButton->setEnabled(true);
+
     busy = false;
     if(!error)
     {
@@ -146,7 +161,8 @@ void MainWindow::processOk()
 
         foreach (const QString &box_string, response_list) {
             if(box_string.split(",").length() == 6)
-                boxes.push_back(box_string);
+                boxes.push_back(box_string);            
+                //qDebug() << box_string;
         }
 
         // Fenêtre rendu
