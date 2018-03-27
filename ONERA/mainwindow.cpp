@@ -133,6 +133,9 @@ void MainWindow::serverError(QNetworkReply::NetworkError)
 
 void MainWindow::pingOk()
 {
+    ui->processButton->setEnabled(true);
+    ui->serverAdressButton->setEnabled(true);
+
     busy = false;
     if(!error)
     {
