@@ -73,7 +73,7 @@ void GLWidget::paintGL()
         Vector3 pos = boxs[i].getPosition();
         Vector3 dim = boxs[i].getDimension();
 
-        drawCube(pos.getX()*zoom, pos.getY()*zoom - 0.6f, pos.getZ()*zoom, dim.getX()*zoom, dim.getY()*zoom, dim.getZ()*zoom, colors[i]);
+        drawCube(pos.getX()*zoom, pos.getY()*zoom-0.5f, pos.getZ()*zoom, dim.getX()*zoom, dim.getY()*zoom, dim.getZ()*zoom, colors[i]);
     }
 
     glFlush();

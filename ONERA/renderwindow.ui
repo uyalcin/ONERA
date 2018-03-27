@@ -74,27 +74,6 @@
      <string>Previous State</string>
     </property>
    </widget>
-   <widget class="QLabel" name="zoom_label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="text">
-     <string>Zoom : </string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <customwidgets>
