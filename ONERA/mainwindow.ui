@@ -7,26 +7,176 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="renderButton">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>100</y>
-      <width>97</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Render</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QFormLayout" name="formContainer">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lengthLabel">
+        <property name="text">
+         <string>Box length</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="widthLabel">
+        <property name="text">
+         <string>Box width</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="heightLabel">
+        <property name="text">
+         <string>Box height</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="percentFillingBoxLabel">
+        <property name="text">
+         <string>% box filling</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="numberObjectsWantedLabel">
+        <property name="text">
+         <string>Number objects</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="lengthSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="singleStep">
+         <number>50</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="widthSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="singleStep">
+         <number>50</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="heightSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="singleStep">
+         <number>50</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QDoubleSpinBox" name="percentFillingBoxSpin">
+        <property name="decimals">
+         <number>4</number>
+        </property>
+        <property name="minimum">
+         <double>0.000100000000000</double>
+        </property>
+        <property name="maximum">
+         <double>0.999900000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.600000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="numberObjectsWantedSpin">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="singleStep">
+         <number>20</number>
+        </property>
+        <property name="value">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="serverAdressLabel">
+        <property name="text">
+         <string>Server adress</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <layout class="QHBoxLayout" name="serverAdressContainer">
+        <item>
+         <widget class="QLineEdit" name="serverAdressEdit">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>adress:port</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="serverAdressButton">
+          <property name="text">
+           <string>Test</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="processButton">
+        <property name="text">
+         <string>Process</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -34,7 +184,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>26</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
@@ -52,23 +202,143 @@
  <resources/>
  <connections>
   <connection>
-   <sender>renderButton</sender>
+   <sender>serverAdressButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>test()</slot>
+   <slot>testServer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>229</x>
-     <y>161</y>
+     <x>324</x>
+     <y>257</y>
     </hint>
     <hint type="destinationlabel">
-     <x>229</x>
-     <y>203</y>
+     <x>281</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>processButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>process()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>314</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>84</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lengthSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateLength(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widthSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateWidth(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>heightSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateHeight(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>104</x>
+     <y>158</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>percentFillingBoxSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updatePercentFillingBox(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>numberObjectsWantedSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateNumberObjectsWanted(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>serverAdressEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateServerAdress(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>273</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>test()</slot>
+  <slot>testServer()</slot>
+  <slot>process()</slot>
+  <slot>updateLength(int)</slot>
+  <slot>updateWidth(int)</slot>
+  <slot>updateHeight(int)</slot>
+  <slot>updatePercentFillingBox(double)</slot>
+  <slot>updateNumberObjectsWanted(int)</slot>
+  <slot>updateServerAdress(QString)</slot>
  </slots>
 </ui>

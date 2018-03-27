@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QMessageBox>
+#include <QtNetwork>
+#include <vector>
+#include "box.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,8 +23,33 @@ public:
 public slots:
     void test();
 
+    void updateLength(int val);
+    void updateWidth(int val);
+    void updateHeight(int val);
+    void updatePercentFillingBox(double val);
+    void updateNumberObjectsWanted(int val);
+    void updateServerAdress(QString val);
+
+    void process();
+    void testServer();
+
+    void progress(qint64 bytesReceived, qint64 bytesTotal);
+    void serverError(QNetworkReply::NetworkError);
+    void pingOk();
+    void processOk();
+
 private:
     Ui::MainWindow *ui;
+
+    int length;
+    int width;
+    int height;
+    double percentFillingBox;
+    int numberObjectsWanted;
+    QString serverAdress;
+
+    bool busy;
+    bool error;
 };
 
 #endif // MAINWINDOW_H
