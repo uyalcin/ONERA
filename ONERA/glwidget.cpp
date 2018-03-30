@@ -114,20 +114,22 @@ void GLWidget::resizeGL(int w, int h)
 
 void GLWidget::keyPressEvent(QKeyEvent *event)
 {
-    float coeff;
-    /*if(zoom >= 0.1f)
-        coeff = 0.1f;
-    else
-        coeff = 0.01f;*/
-    if(event->key() == Qt::Key_I)
+    if(event->key() == Qt::Key_Plus)
     {
         zoom *= 1.2;
     }
-    if(event->key() == Qt::Key_U)
+    if(event->key() == Qt::Key_Minus)
     {
         zoom /= 1.2;
     }
-    qDebug() << "Zoom = " << zoom;
+    if(event->key() == Qt::Key_PageDown)
+    {
+        nextState();
+    }
+    if(event->key() == Qt::Key_PageUp)
+    {
+        previousState();
+    }
     update();
 }
 

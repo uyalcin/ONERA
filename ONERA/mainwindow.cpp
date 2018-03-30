@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     height = 50;
     percentFillingBox = 0.6;
     numberObjectsWanted = 20;
-    serverAdress = "localhost:8000";
+    serverAdress = "localhost:8000/server";
 
     busy = false;
     error = false;
