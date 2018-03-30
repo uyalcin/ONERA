@@ -2,3 +2,5 @@
 build-ONERA-Desktop-Debug/
 
 ONERA/ONERA\.pro\.user
+
+*.pyc
