@@ -8,7 +8,7 @@ float rand_a_b(int a, int b)
 GLWidget::GLWidget(QWidget *parent):
     QGLWidget(parent),
     state(1),
-    zoom(1.0f)
+    zoom(0.01f)
 {
 
 }
@@ -115,17 +115,17 @@ void GLWidget::resizeGL(int w, int h)
 void GLWidget::keyPressEvent(QKeyEvent *event)
 {
     float coeff;
-    if(zoom >= 0.1f)
+    /*if(zoom >= 0.1f)
         coeff = 0.1f;
     else
-        coeff = 0.01f;
+        coeff = 0.01f;*/
     if(event->key() == Qt::Key_I)
     {
-        zoom -= coeff;
+        zoom *= 1.2;
     }
     if(event->key() == Qt::Key_U)
     {
-        zoom += coeff;
+        zoom /= 1.2;
     }
     qDebug() << "Zoom = " << zoom;
     update();
